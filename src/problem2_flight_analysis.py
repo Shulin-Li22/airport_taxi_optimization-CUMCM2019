@@ -26,7 +26,7 @@ def process_flight_data():
     print("开始处理航班数据...")
 
     # 读取Excel文件
-    file_path = 'data/raw/flight_data.xlsx'  # 原来是 '~/Downloads/8月19日机场数据.xlsx'
+    file_path = '../data/raw/flight_data.xlsx'
     df = pd.read_excel(file_path)
 
     # 设置日期前缀（对应2013年10月22日的数据）
@@ -49,7 +49,7 @@ def process_flight_data():
     flight_count = df_unique.set_index('计划到达时间').resample('10T').size().reset_index(name='航班数量')
 
     # 保存结果到新的Excel文件
-    output_file_path = 'data/processed/机场航班统计结果.xlsx'  # 原来是 '~/Downloads/8月19日机场航班统计结果.xlsx'
+    output_file_path = '../data/processed/机场航班统计结果.xlsx'
     flight_count.to_excel(output_file_path, index=False)
 
     print(f"航班统计结果已保存到 {output_file_path}")
@@ -79,7 +79,7 @@ def visualize_flight_data(flight_count):
     plt.legend()
 
     # 保存图片
-    plt.savefig('results/figures/flight_density_histogram.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../results/figures/flight_density_histogram.png', dpi=300, bbox_inches='tight')
     plt.tight_layout()
     plt.show()
 
@@ -105,7 +105,7 @@ def visualize_flight_data(flight_count):
     plt.legend()
 
     # 保存图片
-    plt.savefig('results/figures/flight_time_series.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../results/figures/flight_time_series.png', dpi=300, bbox_inches='tight')
     plt.tight_layout()
     plt.show()
 

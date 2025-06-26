@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 问题四：短途车优先权分配系统
@@ -10,7 +9,6 @@
 3. 生成优先权分配方案
 4. 可视化插队位置分布
 
-原始文件：Question4_Decision.py + Question4_Decision2.py
 """
 
 import pandas as pd
@@ -31,11 +29,11 @@ def load_data():
     print("加载数据文件...")
 
     # 读取车辆行程数据
-    trips_file = 'data/processed/Taxi_Trips标记.xlsx'  # 原来是 'E:\新建文件夹\Taxi_Trips标记 的副本.xlsx'
+    trips_file = '../data/processed/Taxi_Trips_marked.xlsx'
     df_trips = pd.read_excel(trips_file, engine='openpyxl')
 
     # 读取等待时间成本数据
-    cost_file = 'data/processed/Decision_Model_Results(3).xlsx'  # 原来是 'E:\\新建文件夹\\Decision_Model_Results(3).xlsx'
+    cost_file = '../data/processed/Decision_Model_Results.xlsx'
     df_cost = pd.read_excel(cost_file, engine='openpyxl')
 
     print(f"加载行程数据：{len(df_trips)} 条记录")
@@ -257,7 +255,7 @@ def visualize_insertion_analysis(insertion_df, df_long_trips_sorted):
     plt.tight_layout()
 
     # 保存图片
-    plt.savefig('results/figures/priority_queue_analysis.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../results/figures/priority_queue_analysis.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
